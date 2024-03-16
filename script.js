@@ -3,12 +3,35 @@ let player;
 let playerSpeed = 5;
 let playerHealth = 10;
 let playerMaxHealth = 10;
+let immunityFrames = 0;
+
+// Set the default enemy stats
+let enemies = [];
+let enemyHealth = 2;
+let enemyMaxHealth = 2;
+let enemySpawnTime = 600;
+let enemyTimePassed = 0;
+let enemyX = 0;
+let enemyY = 0;
+let enemySpeed = 3;
 
 // Set the world stats
 let dayCounter = 0;
 let timePassed = 0;
 let maxTimePassed = 2500;
 let isDay = true;
+
+class Enemy {
+	constructor() {
+		this.sprite = new Sprite(enemyX, enemyY);
+		this.sprite.addImage("enemyImage", loadImage("enemy.png"));
+		this.sprite.diameter = 48;
+		this.sprite.collider = "dynamic";
+		this.health = Math.ceil(enemyHealth);
+		this.maxHealth = Math.ceil(enemyMaxHealth);
+		enemies.push(this);
+	}
+}
 
 // Function to generate a random integer
 function getRandomInt(min, max) {
@@ -46,6 +69,8 @@ function draw() {
 	}
 
 	timePassed += 1;
+	enemyTimePassed += 1;
+	immunityFrames += 1;
 
 	stroke(0);
 	strokeWeight(8);
@@ -88,6 +113,29 @@ function draw() {
 		isDay = !isDay;
 		timePassed = 0;
 		dayCounter += 0.5;	
+	}
+
+	if (enemyTimePassed == enemySpawnTime) {
+		if (!day) {
+			enemyX = getRandomInt(-2500, 2500);
+			enemyY = getRandomInt(-2500, 2500);
+			new Enemy();
+			enemyTimePassed = 0;
+		}
+	}
+
+	if (immunityFrames > 29) {
+		enemies.forEach((enemy, index) => {
+			if (player.colliding(enemy.sprite)) {
+				immunityFrames = 0;
+				playerHealth -= 1;
+			}
+		}
+	}
+
+	enemies.forEach((enemy, index) => {
+	        enemy.sprite.direction = enemy.sprite.angleTo(player);
+	        enemy.sprite.speed = enemySpeed;
 	}
 
 	// Show stats via text in top left of the screen
