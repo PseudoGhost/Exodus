@@ -14,6 +14,7 @@ let enemyTimePassed = 0;
 let enemyX = 0;
 let enemyY = 0;
 let enemySpeed = 3;
+let enemyDamage = 1;
 
 // Set the world stats
 let dayCounter = 0;
@@ -112,7 +113,9 @@ function draw() {
 	if (timePassed == maxTimePassed) {
 		isDay = !isDay;
 		timePassed = 0;
-		dayCounter += 0.5;	
+		dayCounter += 0.5;
+		enemySpeed += 0.1;
+		enemyDamage += 0.2;
 	}
 
 	if (enemyTimePassed >= enemySpawnTime) {
@@ -128,7 +131,7 @@ function draw() {
 		enemies.forEach((enemy, index) => {
 			if (player.colliding(enemy.sprite)) {
 				immunityFrames = 0;
-				playerHealth -= 1;
+				playerHealth -= enemyDamage;
 			}
 		})
 	}
