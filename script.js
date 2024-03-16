@@ -7,7 +7,7 @@ let playerMaxHealth = 10;
 // Set the world stats
 let dayCounter = 0;
 let timePassed = 0;
-let maxTimePassed = 800;
+let maxTimePassed = 2500;
 let isDay = true;
 
 // Function to generate a random integer
