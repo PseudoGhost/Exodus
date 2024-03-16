@@ -6,6 +6,9 @@ let playerMaxHealth = 10;
 
 // Set the world stats
 let dayCounter = 0;
+let timePassed = 0;
+let maxTimePassed = 800;
+let isDay = true;
 
 // Function to generate a random integer
 function getRandomInt(min, max) {
@@ -51,7 +54,22 @@ function draw() {
 	fill("#00cc44");
 	rect(15, windowHeight - 50, map(playerHealth, 0, playerMaxHealth, 0, 200), 35, 3); // Inner health bar
 
+	stroke(0);
+	strokeWeight(8);
+	noFill();
+	rect(windowWidth - 450, 30, 400, 35, 3); // Outer time bar
+
+	noStroke();
+	if (isDay) {
+		fill(102, 204, 0);
+	} else {
+		fill(232, 0, 24);
+	}
+	rect(windowWidth - 450, 30, map(time, 0, Maxtime, 0, 400), 35, 3); // Inner time bar
+
 	fill("white");
+	strokeWeight(1);
+	stroke(1);
 
 	// Player Movement
 	if (kb.pressing("left")) player.vel.x = -playerSpeed;
