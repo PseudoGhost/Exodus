@@ -115,8 +115,8 @@ function draw() {
 		dayCounter += 0.5;	
 	}
 
-	if (enemyTimePassed == enemySpawnTime) {
-		if (!day) {
+	if (enemyTimePassed >= enemySpawnTime) {
+		if (!isDay) {
 			enemyX = getRandomInt(-2500, 2500);
 			enemyY = getRandomInt(-2500, 2500);
 			new Enemy();
