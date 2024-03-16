@@ -130,13 +130,13 @@ function draw() {
 				immunityFrames = 0;
 				playerHealth -= 1;
 			}
-		}
+		})
 	}
 
 	enemies.forEach((enemy, index) => {
 	        enemy.sprite.direction = enemy.sprite.angleTo(player);
 	        enemy.sprite.speed = enemySpeed;
-	}
+	})
 
 	// Show stats via text in top left of the screen
 	text("Days Survived: " + Math.floor(dayCounter), 20, 40);
