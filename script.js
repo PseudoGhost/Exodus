@@ -33,7 +33,7 @@ function draw() {
 	background("#32a852");
 
 	// Kill the player if HP drops to 0
-	if (HP < 1) {
+	if (playerHealth < 1) {
 		return;
 	}
 
