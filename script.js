@@ -29,14 +29,13 @@ function setup() {
 
 // Called every frame
 function draw() {
+	clear();
+	background("#32a852");
 
 	// Kill the player if HP drops to 0
 	if (HP < 1) {
 		return;
 	}
-
-	clear();
-	background("green");
 
 	stroke(0);
 	strokeWeight(4);
