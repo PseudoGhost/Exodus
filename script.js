@@ -20,7 +20,7 @@ function setup() {
 	createCanvas(windowWidth, windowHeight);
 
 	// Set player properties
-	player = new Sprite(50, 50, 16, "circle");
+	player = new Sprite(50, 50);
 	player.addImage("playerImage", loadImage("player.png"));
 	player.scale = 3;
 	player.diameter = 16;
