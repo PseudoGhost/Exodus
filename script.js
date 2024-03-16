@@ -65,5 +65,5 @@ function draw() {
 	player.rotateTowards(mouse, 0.4, 90);
 
 	// Show stats via text in top left of the screen
-	text("Days Survived: " + Math.floor(dayCounter), 50, 80);
+	text("Days Survived: " + Math.floor(dayCounter), 20, 40);
 }
