@@ -23,6 +23,7 @@ function setup() {
 	player = new Sprite(50, 50, 16, "circle");
 	player.addImage("playerImage", loadImage("player.png"));
 	player.scale = 3;
+	player.diameter = 16;
 
 	textSize(32);
 }
@@ -44,7 +45,7 @@ function draw() {
 
 	noStroke();
 	fill(0, 255, 0);
-	rect(50, 30, map(HP, 0, MaxHP, 0, 200), 20); // Inner health bar
+	rect(50, 30, map(playerHealth, 0, playerMaxHealth, 0, 200), 20); // Inner health bar
 
 	fill("white");
 
