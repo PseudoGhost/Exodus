@@ -43,13 +43,13 @@ function draw() {
 	}
 
 	stroke(0);
-	strokeWeight(4);
+	strokeWeight(8);
 	noFill();
-	rect(50, 30, 200, 20); // Outer health bar
+	rect(15, windowHeight - 50, 200, 35, 3); // Outer health bar
 
 	noStroke();
-	fill(0, 255, 0);
-	rect(50, 30, map(playerHealth, 0, playerMaxHealth, 0, 200), 20); // Inner health bar
+	fill("#00cc44");
+	rect(15, windowHeight - 50, map(playerHealth, 0, playerMaxHealth, 0, 200), 35, 3); // Inner health bar
 
 	fill("white");
 
