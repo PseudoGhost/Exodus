@@ -84,7 +84,7 @@ function draw() {
 
 	player.rotateTowards(mouse, 0.4, 90);
 
-	if (time == Maxtime) {
+	if (timePassed == maxTimePassed) {
 		isDay = !isDay;
 		timePassed = 0;
 		dayCounter += 0.5;	
