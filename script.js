@@ -45,6 +45,8 @@ function draw() {
 		return;
 	}
 
+	timePassed += 1;
+
 	stroke(0);
 	strokeWeight(8);
 	noFill();
@@ -65,7 +67,7 @@ function draw() {
 	} else {
 		fill(232, 0, 24);
 	}
-	rect(windowWidth - 450, 30, map(time, 0, Maxtime, 0, 400), 35, 3); // Inner time bar
+	rect(windowWidth - 450, 30, map(timePassed, 0, maxTimePassed, 0, 400), 35, 3); // Inner time bar
 
 	fill("white");
 	strokeWeight(1);
@@ -81,6 +83,12 @@ function draw() {
 	else player.vel.y = 0;
 
 	player.rotateTowards(mouse, 0.4, 90);
+
+	if (time == Maxtime) {
+		isDay = !isDay;
+		timePassed = 0;
+		dayCounter += 0.5;	
+	}
 
 	// Show stats via text in top left of the screen
 	text("Days Survived: " + Math.floor(dayCounter), 20, 40);
