@@ -14,6 +14,10 @@ function getRandomInt(min, max) {
 	return Math.floor(Math.random() * (max - min) + min);
 }
 
+function preload() {
+	lexendFont = loadFont("lexend.ttf")
+}
+
 // Called on the first frame
 function setup() {
 	frameRate(60);
@@ -25,6 +29,7 @@ function setup() {
 	player.diameter = 48;
 
 	textSize(32);
+	textFont(lexendFont);
 }
 
 // Called every frame
