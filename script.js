@@ -48,6 +48,17 @@ function draw() {
 
 	fill("white");
 
+	// Player Movement
+	if (kb.pressing("left")) player.vel.x = -playerSpeed;
+	else if (kb.pressing("right")) player.vel.x = playerSpeed;
+	else player.vel.x = 0;
+
+	if (kb.pressing("up")) player.vel.y = -playerSpeed;
+	else if (kb.pressing("down")) player.vel.y = playerSpeed;
+	else player.vel.y = 0;
+
+	player.rotateTowards(mouse, 0.1, 0);
+
 	// Show stats via text in top left of the screen
 	text("Days Survived: " + Math.floor(dayCounter), 50, 80);
 }
