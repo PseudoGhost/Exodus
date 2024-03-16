@@ -22,8 +22,7 @@ function setup() {
 	// Set player properties
 	player = new Sprite(50, 50);
 	player.addImage("playerImage", loadImage("player.png"));
-	player.scale = 3;
-	player.diameter = 16;
+	player.diameter = 48;
 
 	textSize(32);
 }
