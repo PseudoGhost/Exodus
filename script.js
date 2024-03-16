@@ -57,7 +57,7 @@ function draw() {
 	else if (kb.pressing("down")) player.vel.y = playerSpeed;
 	else player.vel.y = 0;
 
-	player.rotateTowards(mouse, 0.1, 0);
+	player.rotateTowards(mouse, 0.1, 90);
 
 	// Show stats via text in top left of the screen
 	text("Days Survived: " + Math.floor(dayCounter), 50, 80);
